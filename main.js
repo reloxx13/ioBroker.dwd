@@ -54,6 +54,7 @@ let adapter = new utils.Adapter({
 
 adapter.on('ready', () => {
     adapter.config.warnings = parseInt(adapter.config.warnings, 10) || 1;
+    adapter.config.prewarnings = parseInt(adapter.config.preconfigs, 1) || 1;
 
     adapter.config.url = adapter.config.url || 'http://www.dwd.de/DWD/warnungen/warnapp/json/warnings.json';
 
@@ -203,8 +204,10 @@ function processFile(err, data) {
         return;
     }
 
+    
+    let warnings = [];
+
     if (data.warnings) {
-        let warnings = [];
         for (const w in data.warnings) {
             if (data.warnings.hasOwnProperty(w)) {
                 const arr = data.warnings[w];
@@ -218,6 +221,31 @@ function processFile(err, data) {
                 }
             }
         }
+        
+    }else{
+        adapter.log.debug("No Warnings found!")
+    }
+
+    if (adapter.config.prewarnings === 1 ) {
+        if(data.vorabInformation){
+            for (const v in data.vorabInformation) {
+                if (data.vorabInformation.hasOwnProperty(v)) {
+                    const arr = data.vorabInformation[v];
+                    for (let a = 0; a < arr.length; a++) {
+                        if (arr[a].regionName === adapter.config.region) {
+                            // filter out similar entries
+                            if (!warnings.find(r => JSON.stringify(r) === JSON.stringify(arr[a]))) {
+                                warnings.push(arr[a]);
+                            }
+                        }
+                    }
+                }
+            }
+        }else{
+            adapter.log.debug("No Pre Warnings found!")
+        }
+    }
+    if(warnings.length > 0){
         warnings.sort(tools.sort);
 
         for (let c = 0; c < channels.length; c++) {
