@@ -2,5 +2,7 @@
   "Region": "Región",
   "no map": "sin mapa",
   "Get map for warning": "Obtener mapa para advertencia",
-  "Number of warnings": "Número de advertencias"
+  "Number of warnings": "Número de advertencias",
+  "Create states for rainradar": "Create objects to include rain radar into your visualization.",
+  "Load prewarnings": "Load prewarnings"
 }

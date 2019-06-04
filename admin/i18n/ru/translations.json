@@ -2,5 +2,7 @@
   "Region": "Область",
   "no map": "без карты",
   "Get map for warning": "Получить карту для предупреждения",
-  "Number of warnings": "Количество предупреждений"
+  "Number of warnings": "Количество предупреждений",
+  "Create states for rainradar": "Create objects to include rain radar into your visualization.",
+  "Load prewarnings": "Load prewarnings"
 }

@@ -3,5 +3,6 @@
   "no map": "no map",
   "Get map for warning": "Get map for warning",
   "Number of warnings": "Number of warnings",
-  "Create states for rainradar": "Create objects to include rain radar into your visualization."
+  "Create states for rainradar": "Create objects to include rain radar into your visualization.",
+  "Load prewarnings": "Load prewarnings"
 }

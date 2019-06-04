@@ -2,5 +2,7 @@
   "Region": "Regio",
   "no map": "geen kaart",
   "Get map for warning": "Krijg kaart voor waarschuwing",
-  "Number of warnings": "Aantal waarschuwingen"
+  "Number of warnings": "Aantal waarschuwingen",
+  "Create states for rainradar": "Create objects to include rain radar into your visualization.",
+  "Load prewarnings": "Load prewarnings"
 }
